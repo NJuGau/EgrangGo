@@ -18,6 +18,19 @@
 		0DAC78C82BF5A84C0001468A /* EgrangGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC78C72BF5A84C0001468A /* EgrangGoUITests.swift */; };
 		0DAC78CA2BF5A84C0001468A /* EgrangGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC78C92BF5A84C0001468A /* EgrangGoUITestsLaunchTests.swift */; };
 		0DAC79112BF7BA170001468A /* LeafBlowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79102BF7BA170001468A /* LeafBlowParticle.sks */; };
+		0DAC79132BF867960001468A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79122BF867960001468A /* Player.swift */; };
+		0DAC79172BF867EC0001468A /* Collision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79162BF867EC0001468A /* Collision.swift */; };
+		0DAC79242BF88EC20001468A /* Stone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791A2BF88EC00001468A /* Stone.wav */; };
+		0DAC79252BF88EC20001468A /* Water.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791B2BF88EC00001468A /* Water.wav */; };
+		0DAC79262BF88EC20001468A /* Step2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791C2BF88EC00001468A /* Step2.wav */; };
+		0DAC79272BF88EC20001468A /* Mud2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791D2BF88EC00001468A /* Mud2.wav */; };
+		0DAC79282BF88EC20001468A /* Wind.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791E2BF88EC10001468A /* Wind.wav */; };
+		0DAC79292BF88EC20001468A /* Mud1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC791F2BF88EC10001468A /* Mud1.wav */; };
+		0DAC792A2BF88EC20001468A /* Backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79202BF88EC10001468A /* Backsound.wav */; };
+		0DAC792B2BF88EC20001468A /* Step1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79212BF88EC20001468A /* Step1.wav */; };
+		0DAC792C2BF88EC20001468A /* Result.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79222BF88EC20001468A /* Result.wav */; };
+		0DAC792D2BF88EC20001468A /* Tree.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79232BF88EC20001468A /* Tree.wav */; };
+		0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC792E2BF88F110001468A /* ReourceHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +65,19 @@
 		0DAC78C72BF5A84C0001468A /* EgrangGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgrangGoUITests.swift; sourceTree = "<group>"; };
 		0DAC78C92BF5A84C0001468A /* EgrangGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgrangGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0DAC79102BF7BA170001468A /* LeafBlowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LeafBlowParticle.sks; sourceTree = "<group>"; };
+		0DAC79122BF867960001468A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0DAC79162BF867EC0001468A /* Collision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collision.swift; sourceTree = "<group>"; };
+		0DAC791A2BF88EC00001468A /* Stone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Stone.wav; sourceTree = "<group>"; };
+		0DAC791B2BF88EC00001468A /* Water.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Water.wav; sourceTree = "<group>"; };
+		0DAC791C2BF88EC00001468A /* Step2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Step2.wav; sourceTree = "<group>"; };
+		0DAC791D2BF88EC00001468A /* Mud2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mud2.wav; sourceTree = "<group>"; };
+		0DAC791E2BF88EC10001468A /* Wind.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Wind.wav; sourceTree = "<group>"; };
+		0DAC791F2BF88EC10001468A /* Mud1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mud1.wav; sourceTree = "<group>"; };
+		0DAC79202BF88EC10001468A /* Backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Backsound.wav; sourceTree = "<group>"; };
+		0DAC79212BF88EC20001468A /* Step1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Step1.wav; sourceTree = "<group>"; };
+		0DAC79222BF88EC20001468A /* Result.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Result.wav; sourceTree = "<group>"; };
+		0DAC79232BF88EC20001468A /* Tree.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tree.wav; sourceTree = "<group>"; };
+		0DAC792E2BF88F110001468A /* ReourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReourceHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +128,9 @@
 		0DAC78A22BF5A84B0001468A /* EgrangGo */ = {
 			isa = PBXGroup;
 			children = (
+				0DAC79182BF88EA50001468A /* resource */,
+				0DAC79152BF867DD0001468A /* util */,
+				0DAC79142BF8679C0001468A /* model */,
 				0DAC78A32BF5A84B0001468A /* AppDelegate.swift */,
 				0DAC78A52BF5A84B0001468A /* GameScene.sks */,
 				0DAC78A92BF5A84B0001468A /* GameScene.swift */,
@@ -129,6 +158,48 @@
 				0DAC78C92BF5A84C0001468A /* EgrangGoUITestsLaunchTests.swift */,
 			);
 			path = EgrangGoUITests;
+			sourceTree = "<group>";
+		};
+		0DAC79142BF8679C0001468A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC79122BF867960001468A /* Player.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0DAC79152BF867DD0001468A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC79162BF867EC0001468A /* Collision.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		0DAC79182BF88EA50001468A /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC79192BF88EB40001468A /* audio */,
+				0DAC792E2BF88F110001468A /* ReourceHandler.swift */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		0DAC79192BF88EB40001468A /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC79202BF88EC10001468A /* Backsound.wav */,
+				0DAC791F2BF88EC10001468A /* Mud1.wav */,
+				0DAC791D2BF88EC00001468A /* Mud2.wav */,
+				0DAC79222BF88EC20001468A /* Result.wav */,
+				0DAC79212BF88EC20001468A /* Step1.wav */,
+				0DAC791C2BF88EC00001468A /* Step2.wav */,
+				0DAC791A2BF88EC00001468A /* Stone.wav */,
+				0DAC79232BF88EC20001468A /* Tree.wav */,
+				0DAC791B2BF88EC00001468A /* Water.wav */,
+				0DAC791E2BF88EC10001468A /* Wind.wav */,
+			);
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,11 +306,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAC79252BF88EC20001468A /* Water.wav in Resources */,
+				0DAC792D2BF88EC20001468A /* Tree.wav in Resources */,
 				0DAC78AF2BF5A84B0001468A /* Main.storyboard in Resources */,
+				0DAC792B2BF88EC20001468A /* Step1.wav in Resources */,
 				0DAC78A62BF5A84B0001468A /* GameScene.sks in Resources */,
+				0DAC79262BF88EC20001468A /* Step2.wav in Resources */,
+				0DAC79292BF88EC20001468A /* Mud1.wav in Resources */,
+				0DAC79272BF88EC20001468A /* Mud2.wav in Resources */,
+				0DAC792C2BF88EC20001468A /* Result.wav in Resources */,
+				0DAC79242BF88EC20001468A /* Stone.wav in Resources */,
+				0DAC79282BF88EC20001468A /* Wind.wav in Resources */,
 				0DAC78B12BF5A84C0001468A /* Assets.xcassets in Resources */,
 				0DAC78B42BF5A84C0001468A /* LaunchScreen.storyboard in Resources */,
 				0DAC79112BF7BA170001468A /* LeafBlowParticle.sks in Resources */,
+				0DAC792A2BF88EC20001468A /* Backsound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +345,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAC79172BF867EC0001468A /* Collision.swift in Sources */,
+				0DAC79132BF867960001468A /* Player.swift in Sources */,
 				0DAC78AA2BF5A84B0001468A /* GameScene.swift in Sources */,
 				0DAC78AC2BF5A84B0001468A /* GameViewController.swift in Sources */,
+				0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */,
 				0DAC78A42BF5A84B0001468A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,8 +538,8 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,8 +570,8 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
