@@ -31,6 +31,7 @@
 		0DAC792C2BF88EC20001468A /* Result.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79222BF88EC20001468A /* Result.wav */; };
 		0DAC792D2BF88EC20001468A /* Tree.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79232BF88EC20001468A /* Tree.wav */; };
 		0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC792E2BF88F110001468A /* ReourceHandler.swift */; };
+		0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		0DAC79222BF88EC20001468A /* Result.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Result.wav; sourceTree = "<group>"; };
 		0DAC79232BF88EC20001468A /* Tree.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tree.wav; sourceTree = "<group>"; };
 		0DAC792E2BF88F110001468A /* ReourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReourceHandler.swift; sourceTree = "<group>"; };
+		0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		0DAC79142BF8679C0001468A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */,
 				0DAC79122BF867960001468A /* Player.swift */,
 			);
 			path = model;
@@ -349,6 +352,7 @@
 				0DAC79132BF867960001468A /* Player.swift in Sources */,
 				0DAC78AA2BF5A84B0001468A /* GameScene.swift in Sources */,
 				0DAC78AC2BF5A84B0001468A /* GameViewController.swift in Sources */,
+				0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */,
 				0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */,
 				0DAC78A42BF5A84B0001468A /* AppDelegate.swift in Sources */,
 			);
