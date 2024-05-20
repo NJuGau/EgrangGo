@@ -19,7 +19,10 @@ class PlayerBody: SKSpriteNode {
         physicsBody?.collisionBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
         physicsBody?.contactTestBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
         physicsBody?.isDynamic = true
-        
+        physicsBody?.affectedByGravity = false
+        physicsBody?.allowsRotation = false
+        physicsBody?.mass = 50
+        physicsBody?.angularDamping = 0.5
         //positioning
         position.y = 105
     }
@@ -38,7 +41,8 @@ class PlayerLeg: SKSpriteNode {
         physicsBody?.categoryBitMask = CollisionCategory.playerLeg.rawValue
         physicsBody?.collisionBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
         physicsBody?.contactTestBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
-//        physicsBody?.mass = 9999999
+        physicsBody?.mass = 80
+        physicsBody?.friction = 1
         position.y = -195
         position.x = 50
         

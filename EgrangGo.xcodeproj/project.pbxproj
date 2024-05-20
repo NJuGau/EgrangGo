@@ -32,6 +32,10 @@
 		0DAC792D2BF88EC20001468A /* Tree.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC79232BF88EC20001468A /* Tree.wav */; };
 		0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC792E2BF88F110001468A /* ReourceHandler.swift */; };
 		0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */; };
+		0DAC79352BFAECAD0001468A /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79342BFAECAD0001468A /* Ground.swift */; };
+		0DAC79372BFAF8920001468A /* GroundRigid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79362BFAF8920001468A /* GroundRigid.swift */; };
+		0DAC79392BFAFABA0001468A /* Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79382BFAFABA0001468A /* Stone.swift */; };
+		0DAC793B2BFAFB0E0001468A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC793A2BFAFB0E0001468A /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		0DAC79232BF88EC20001468A /* Tree.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tree.wav; sourceTree = "<group>"; };
 		0DAC792E2BF88F110001468A /* ReourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReourceHandler.swift; sourceTree = "<group>"; };
 		0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
+		0DAC79342BFAECAD0001468A /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		0DAC79362BFAF8920001468A /* GroundRigid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundRigid.swift; sourceTree = "<group>"; };
+		0DAC79382BFAFABA0001468A /* Stone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone.swift; sourceTree = "<group>"; };
+		0DAC793A2BFAFB0E0001468A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,9 @@
 			children = (
 				0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */,
 				0DAC79122BF867960001468A /* Player.swift */,
+				0DAC79342BFAECAD0001468A /* Ground.swift */,
+				0DAC79362BFAF8920001468A /* GroundRigid.swift */,
+				0DAC79382BFAFABA0001468A /* Stone.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				0DAC79162BF867EC0001468A /* Collision.swift */,
+				0DAC793A2BFAFB0E0001468A /* Constant.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -348,12 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAC79372BFAF8920001468A /* GroundRigid.swift in Sources */,
 				0DAC79172BF867EC0001468A /* Collision.swift in Sources */,
 				0DAC79132BF867960001468A /* Player.swift in Sources */,
 				0DAC78AA2BF5A84B0001468A /* GameScene.swift in Sources */,
 				0DAC78AC2BF5A84B0001468A /* GameViewController.swift in Sources */,
+				0DAC79392BFAFABA0001468A /* Stone.swift in Sources */,
 				0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */,
 				0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */,
+				0DAC793B2BFAFB0E0001468A /* Constant.swift in Sources */,
+				0DAC79352BFAECAD0001468A /* Ground.swift in Sources */,
 				0DAC78A42BF5A84B0001468A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
