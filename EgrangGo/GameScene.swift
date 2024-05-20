@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let cam = SKCameraNode()
     var nextCamPosition = Screen.width.rawValue
     
+    var obstacle: Array<SKSpriteNode> = []
+    
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
         
@@ -131,6 +133,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newGround.position.y = -frame.height / 2
             lastGroundPosition = Int(newGround.position.x)
             addChild(newGround)
+            
+//            var breaks: Int = 0
+            for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
+//                if breaks > 0 {
+//                    breaks -= 1
+//                    continue
+//                }
+                let coinFlip = Int.random(in: 0..<100)
+                if coinFlip < 10 {
+                    addChild(Rock(x: CGFloat(pos)))
+//                    breaks = 200
+                }
+            }
         }
     }
     
