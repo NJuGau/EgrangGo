@@ -35,9 +35,13 @@
 		0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC792E2BF88F110001468A /* ReourceHandler.swift */; };
 		0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */; };
 		0DAC79352BFAECAD0001468A /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79342BFAECAD0001468A /* Ground.swift */; };
-		0DAC79372BFAF8920001468A /* GroundRigid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79362BFAF8920001468A /* GroundRigid.swift */; };
 		0DAC79392BFAFABA0001468A /* Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC79382BFAFABA0001468A /* Stone.swift */; };
 		0DAC793B2BFAFB0E0001468A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC793A2BFAFB0E0001468A /* Constant.swift */; };
+		0DBD8F692BFC60C1006FE4B6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F682BFC60C1006FE4B6 /* ResultView.swift */; };
+		0DBD8F6B2BFC7E0A006FE4B6 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F6A2BFC7E0A006FE4B6 /* StartView.swift */; };
+		0DBD8F6D2BFC826D006FE4B6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F6C2BFC826D006FE4B6 /* BackgroundView.swift */; };
+		0DBD8F712BFC9280006FE4B6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F702BFC9280006FE4B6 /* Protocol.swift */; };
+		0DBD8F732BFCDA87006FE4B6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F722BFCDA87006FE4B6 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +93,13 @@
 		0DAC792E2BF88F110001468A /* ReourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReourceHandler.swift; sourceTree = "<group>"; };
 		0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		0DAC79342BFAECAD0001468A /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
-		0DAC79362BFAF8920001468A /* GroundRigid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundRigid.swift; sourceTree = "<group>"; };
 		0DAC79382BFAFABA0001468A /* Stone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone.swift; sourceTree = "<group>"; };
 		0DAC793A2BFAFB0E0001468A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0DBD8F682BFC60C1006FE4B6 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		0DBD8F6A2BFC7E0A006FE4B6 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		0DBD8F6C2BFC826D006FE4B6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0DBD8F702BFC9280006FE4B6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		0DBD8F722BFCDA87006FE4B6 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				0D20F5CC2BFBE3F90043B80A /* GameView.swift */,
+				0DBD8F682BFC60C1006FE4B6 /* ResultView.swift */,
+				0DBD8F6A2BFC7E0A006FE4B6 /* StartView.swift */,
+				0DBD8F6C2BFC826D006FE4B6 /* BackgroundView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -189,7 +200,6 @@
 				0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */,
 				0DAC79122BF867960001468A /* Player.swift */,
 				0DAC79342BFAECAD0001468A /* Ground.swift */,
-				0DAC79362BFAF8920001468A /* GroundRigid.swift */,
 				0DAC79382BFAFABA0001468A /* Stone.swift */,
 				0D20F5D02BFBE9B40043B80A /* Cat.swift */,
 			);
@@ -201,6 +211,8 @@
 			children = (
 				0DAC79162BF867EC0001468A /* Collision.swift */,
 				0DAC793A2BFAFB0E0001468A /* Constant.swift */,
+				0DBD8F702BFC9280006FE4B6 /* Protocol.swift */,
+				0DBD8F722BFCDA87006FE4B6 /* AudioPlayer.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -374,17 +386,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DAC79372BFAF8920001468A /* GroundRigid.swift in Sources */,
 				0DAC79172BF867EC0001468A /* Collision.swift in Sources */,
 				0DAC79132BF867960001468A /* Player.swift in Sources */,
 				0DAC78AA2BF5A84B0001468A /* GameScene.swift in Sources */,
 				0DAC78AC2BF5A84B0001468A /* GameViewController.swift in Sources */,
+				0DBD8F692BFC60C1006FE4B6 /* ResultView.swift in Sources */,
+				0DBD8F6B2BFC7E0A006FE4B6 /* StartView.swift in Sources */,
 				0DAC79392BFAFABA0001468A /* Stone.swift in Sources */,
 				0D20F5D12BFBE9B40043B80A /* Cat.swift in Sources */,
 				0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */,
+				0DBD8F6D2BFC826D006FE4B6 /* BackgroundView.swift in Sources */,
+				0DBD8F732BFCDA87006FE4B6 /* AudioPlayer.swift in Sources */,
 				0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */,
 				0DAC793B2BFAFB0E0001468A /* Constant.swift in Sources */,
 				0DAC79352BFAECAD0001468A /* Ground.swift in Sources */,
+				0DBD8F712BFC9280006FE4B6 /* Protocol.swift in Sources */,
 				0D20F5CD2BFBE3F90043B80A /* GameView.swift in Sources */,
 				0DAC78A42BF5A84B0001468A /* AppDelegate.swift in Sources */,
 			);

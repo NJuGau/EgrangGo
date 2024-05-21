@@ -17,7 +17,7 @@ class Rock: SKSpriteNode {
         physicsBody?.collisionBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
         physicsBody?.contactTestBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
         position.x = x
-        position.y = CGFloat(-Screen.height.rawValue/2 + 125)
+        position.y = CGFloat(-Screen.height.rawValue/2 + 100)
         physicsBody?.isDynamic = true
         physicsBody?.friction = 1
         physicsBody?.pinned = true

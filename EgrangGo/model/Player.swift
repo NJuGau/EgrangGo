@@ -23,6 +23,7 @@ class PlayerBody: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.mass = 50
         physicsBody?.angularDamping = 0.5
+        physicsBody?.restitution = 0.0
         //positioning
         position.y = 105
     }

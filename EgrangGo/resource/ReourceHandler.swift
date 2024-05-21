@@ -13,18 +13,18 @@ enum ResourceHandler {
 
 
 struct SoundResourceHandler {
-    let backgroundSound = "Backsound.wav"
+    let backgroundSound = "Backsound"
     var mudStep: String {
         let variation = Int.random(in: 1...2)
-        return ("Mud\(variation).wav")
+        return ("Mud\(variation)")
     }
     var groundStep: String {
         let variation = Int.random(in: 1...2)
-        return ("Step\(variation).wav")
+        return ("Step\(variation)")
     }
-    let gameComplete = "Result.wav"
-    let stoneHit = "Stone.wav"
-    let treePass = "Tree.wav"
-    let waterSplash = "Water.wav"
-    let wind = "Wind.wav"
+    let gameComplete = "Result"
+    let stoneHit = "Stone"
+    let treePass = "Tree"
+    let waterSplash = "Water"
+    let wind = "Wind"
 }

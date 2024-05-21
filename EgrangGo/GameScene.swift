@@ -7,7 +7,14 @@
 
 import SpriteKit
 
+
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var gameOverProtocol: GameOverProtocol? = nil
+    var distanceProtocol: DistanceProtocol? = nil
+    var timeProtocol: TimeProtocol? = nil
     
     let playerBody = PlayerBody()
     let playerLeftLeg = PlayerLeg()
@@ -15,11 +22,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let ground = SKShapeNode(rectOf: CGSize(width: generateTerrain(), height: 200))
     var lastGroundPosition = 0
-    
-    let rock1 = Rock(x: 300)
-    let rock2 = Rock(x: 0)
-//    var points = GroundRigid().generatePoints()
-//    let groundRigid = SKShapeNode(points: &points, count: points.count)
     
     let joystickLeft = TLAnalogJoystick(withDiameter: 200)
     let joystickRight = TLAnalogJoystick(withDiameter: 200)
@@ -30,6 +32,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var obstacle: Array<SKSpriteNode> = []
     
     override func didMove(to view: SKView) {
+        
+        view.isMultipleTouchEnabled = true
+        self.backgroundColor = .clear
+        view.allowsTransparency = true
+        
         physicsWorld.contactDelegate = self
         
         ground.strokeColor = .ground
@@ -45,7 +52,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.position.y = -frame.height / 2
         addChild(ground)
         
-//        physicsWorld.gravity = CGVectorMake(1, 1)
+        for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
+            let coinFlip = Int.random(in: 0..<100)
+            if coinFlip < 10 {
+                addChild(Rock(x: CGFloat(pos)))
+            }
+        }
+        
         if let leaf = SKEmitterNode(fileNamed: "LeafBlowParticle"){
             leaf.position = CGPoint(x:1080, y: 0)
             leaf.zPosition = -1
@@ -84,8 +97,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         joystickLeft.on(.move) { [unowned self] data in
             playerLeftLeg.zRotation = data.angular + .pi
-            print("angular: \(data.angular)")
-            print("player left leg: \(playerLeftLeg.zRotation)")
+//            print("angular: \(data.angular)")
+//            print("player left leg: \(playerLeftLeg.zRotation)")
             
             //confused using animation
 //            let diffPos = abs(data.angular + .pi - playerLeftLeg.zRotation)
@@ -105,16 +118,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.addChild(joystickRight)
         joystickRight.on(.move) { [unowned self] data in
             playerRightLeg.zRotation = data.angular + .pi
-            print("angular: \(data.angular)")
-            print("player right leg: \(playerRightLeg.zRotation)")
+//            print("angular: \(data.angular)")
+//            print("player right leg: \(playerRightLeg.zRotation)")
             
         }
         
-        addChild(rock1)
+//        addChild(rock1)
 //        addChild(rock2)
     }
     
     override func update(_ currentTime: TimeInterval) {
+        print(playerBody.position.x)
         cam.position.x = playerBody.position.x + 400
         if Int(cam.position.x) > nextCamPosition {
             print("Make new ground")
@@ -134,23 +148,94 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lastGroundPosition = Int(newGround.position.x)
             addChild(newGround)
             
-//            var breaks: Int = 0
             for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
-//                if breaks > 0 {
-//                    breaks -= 1
-//                    continue
-//                }
                 let coinFlip = Int.random(in: 0..<100)
                 if coinFlip < 10 {
                     addChild(Rock(x: CGFloat(pos)))
-//                    breaks = 200
                 }
             }
+        }
+        
+        if var distanceProtocol = self.distanceProtocol {
+            distanceProtocol.updateDistance(distance: Int(playerBody.position.x / 100))
+        }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+        
+        let sortedNodes = [nodeA, nodeB].sorted { $0.name ?? "" < $1.name ?? ""}
+        
+        let firstNode = sortedNodes[0]
+        let secondNode = sortedNodes[1]
+        
+        if firstNode.physicsBody?.categoryBitMask == CollisionCategory.playerBody.rawValue || secondNode.physicsBody?.categoryBitMask == CollisionCategory.playerBody.rawValue {
+            handleBodyCollision(contact: contact)
+        }else if firstNode.physicsBody?.categoryBitMask == CollisionCategory.playerLeg.rawValue || secondNode.physicsBody?.categoryBitMask == CollisionCategory.playerLeg.rawValue {
+            handleLegCollision(contact: contact)
+        }
+    }
+    
+    func handleBodyCollision(contact: SKPhysicsContact) {
+        var envBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask == CollisionCategory.playerBody.rawValue {
+            envBody = contact.bodyB
+        } else{
+            envBody = contact.bodyA
+        }
+        
+        switch envBody.categoryBitMask{
+            case CollisionCategory.ground.rawValue:
+                let playGameOverSound = SKAction.playSoundFileNamed(ResourceHandler.sound.gameComplete, waitForCompletion: true)
+                self.run(playGameOverSound)
+                gameOver()
+            
+            default:
+            break
+            
+        }
+    }
+    
+    func handleLegCollision(contact: SKPhysicsContact) {
+        var envBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask == CollisionCategory.playerLeg.rawValue {
+            envBody = contact.bodyB
+        } else{
+            envBody = contact.bodyA
+        }
+        
+        switch envBody.categoryBitMask{
+            //TODO: too laggy, please fix
+//            case CollisionCategory.ground.rawValue:
+//                let playStepSound = SKAction.playSoundFileNamed(ResourceHandler.sound.groundStep, waitForCompletion: true)
+//                self.run(playStepSound)
+            case CollisionCategory.rock.rawValue:
+                let playRockSound = SKAction.playSoundFileNamed(ResourceHandler.sound.stoneHit, waitForCompletion: true)
+                self.run(playRockSound)
+            
+            default:
+            break
+            
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        playerLeftLeg.run(SKAction.rotate(byAngle: .pi / 2, duration: 1.0))
-//        playerRightLeg.run(SKAction.rotate(byAngle: -.pi / 2, duration: 1.0))
+        
     }
+    
+    func gameOver() {
+        if var gameOverProtocol = self.gameOverProtocol {
+            gameOverProtocol.setGameOver(value: true)
+        }
+        lastGroundPosition = 0
+        nextCamPosition = Screen.width.rawValue
+        camera?.removeAllActions()
+        camera?.removeAllChildren()
+        playerBody.removeAllActions()
+        playerBody.removeAllChildren()
+        self.removeAllActions()
+        self.removeAllChildren()
+    }
+    
 }
