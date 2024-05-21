@@ -42,6 +42,9 @@
 		0DBD8F6D2BFC826D006FE4B6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F6C2BFC826D006FE4B6 /* BackgroundView.swift */; };
 		0DBD8F712BFC9280006FE4B6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F702BFC9280006FE4B6 /* Protocol.swift */; };
 		0DBD8F732BFCDA87006FE4B6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F722BFCDA87006FE4B6 /* AudioPlayer.swift */; };
+		0DBD8F772BFCEC39006FE4B6 /* Fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F742BFCEC39006FE4B6 /* Fall.wav */; };
+		0DBD8F782BFCEC39006FE4B6 /* Countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F752BFCEC39006FE4B6 /* Countdown.wav */; };
+		0DBD8F792BFCEC39006FE4B6 /* TimeUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F762BFCEC39006FE4B6 /* TimeUp.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,9 @@
 		0DBD8F6C2BFC826D006FE4B6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		0DBD8F702BFC9280006FE4B6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		0DBD8F722BFCDA87006FE4B6 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		0DBD8F742BFCEC39006FE4B6 /* Fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fall.wav; sourceTree = "<group>"; };
+		0DBD8F752BFCEC39006FE4B6 /* Countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Countdown.wav; sourceTree = "<group>"; };
+		0DBD8F762BFCEC39006FE4B6 /* TimeUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TimeUp.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +235,9 @@
 		0DAC79192BF88EB40001468A /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				0DBD8F752BFCEC39006FE4B6 /* Countdown.wav */,
+				0DBD8F742BFCEC39006FE4B6 /* Fall.wav */,
+				0DBD8F762BFCEC39006FE4B6 /* TimeUp.wav */,
 				0DAC79202BF88EC10001468A /* Backsound.wav */,
 				0DAC791F2BF88EC10001468A /* Mud1.wav */,
 				0DAC791D2BF88EC00001468A /* Mud2.wav */,
@@ -350,10 +359,13 @@
 				0DAC79252BF88EC20001468A /* Water.wav in Resources */,
 				0D20F5CF2BFBE5960043B80A /* GameScene.sks in Resources */,
 				0DAC792D2BF88EC20001468A /* Tree.wav in Resources */,
+				0DBD8F772BFCEC39006FE4B6 /* Fall.wav in Resources */,
 				0DAC78AF2BF5A84B0001468A /* Main.storyboard in Resources */,
 				0DAC792B2BF88EC20001468A /* Step1.wav in Resources */,
 				0DAC79262BF88EC20001468A /* Step2.wav in Resources */,
 				0DAC79292BF88EC20001468A /* Mud1.wav in Resources */,
+				0DBD8F792BFCEC39006FE4B6 /* TimeUp.wav in Resources */,
+				0DBD8F782BFCEC39006FE4B6 /* Countdown.wav in Resources */,
 				0DAC79272BF88EC20001468A /* Mud2.wav in Resources */,
 				0DAC792C2BF88EC20001468A /* Result.wav in Resources */,
 				0DAC79242BF88EC20001468A /* Stone.wav in Resources */,

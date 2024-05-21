@@ -67,7 +67,7 @@ struct GameView: View {
 
 extension GameView: GameOverProtocol {
     mutating func setGameOver(value: Bool) {
-        playAudio(audioResourceId: ResourceHandler.sound.gameComplete, isLoop: false)
+        playAudio(audioResourceId: (gameModel.time <= 0) ? ResourceHandler.sound.timeUp : ResourceHandler.sound.fall, isLoop: false)
         gameModel.isGameOver = value
     }
 }
@@ -80,7 +80,7 @@ extension GameView: DistanceProtocol {
 
 extension GameView: TimeProtocol {
     mutating func updateTime(time: Int) {
-        gameModel.time = (gameModel.isGameOver) ? 0: time
+        gameModel.time = (gameModel.isGameOver) ? gameModel.time: time
     }
     
     

@@ -27,4 +27,7 @@ struct SoundResourceHandler {
     let treePass = "Tree"
     let waterSplash = "Water"
     let wind = "Wind"
+    let fall = "Fall"
+    let countdown = "Countdown"
+    let timeUp = "TimeUp"
 }

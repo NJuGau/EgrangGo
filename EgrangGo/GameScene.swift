@@ -222,13 +222,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func countdown() {
         timer -= 1
+        if var timeProtocol = self.timeProtocol {
+            timeProtocol.updateTime(time: timer)
+        }
         if timer <= 0{
             gameOver()
         }else if timer < 10 {
-            run(SKAction.playSoundFileNamed(ResourceHandler.sound.groundStep, waitForCompletion: true))
-        }
-        if var timeProtocol = self.timeProtocol {
-            timeProtocol.updateTime(time: timer)
+            run(SKAction.playSoundFileNamed(ResourceHandler.sound.countdown, waitForCompletion: true))
         }
     }
     
