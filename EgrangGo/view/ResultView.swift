@@ -30,6 +30,7 @@ struct ResultView: View {
                 Button {
                     dismiss()
                     isGameOver = false
+                    stopAudio()
                     playAudio(audioResourceId: ResourceHandler.sound.backgroundSound, isLoop: true)
                 }label : {
                     Image(uiImage: UIImage(imageLiteralResourceName: "Home"))

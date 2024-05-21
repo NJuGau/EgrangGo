@@ -14,27 +14,18 @@ class GameViewModel: ObservableObject {
     @Published var isGameOver: Bool = false
     @Published var distance: Int = 0
     @Published var time: Int = 0
+    @Published var gameScene: GameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
 }
 
 struct GameView: View {
     @ObservedObject var gameModel = GameViewModel()
-    
-    let gameScene: GameScene
-    
-    
-    init() {
-        gameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        gameScene.gameOverProtocol = self
-        gameScene.distanceProtocol = self
-        gameScene.timeProtocol = self
-    }
     
     var body: some View {
         NavigationStack{
             ZStack{
                 BackgroundView()
                 
-                SpriteView(scene: gameScene, options: [.allowsTransparency])
+                SpriteView(scene: gameModel.gameScene, options: [.allowsTransparency])
                 
                 VStack{
                     HStack{
@@ -62,6 +53,13 @@ struct GameView: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
+            .onAppear{
+                print("appear")
+                gameModel.gameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+                gameModel.gameScene.gameOverProtocol = self
+                gameModel.gameScene.distanceProtocol = self
+                gameModel.gameScene.timeProtocol = self
+            }
     }
     
     
@@ -82,7 +80,7 @@ extension GameView: DistanceProtocol {
 
 extension GameView: TimeProtocol {
     mutating func updateTime(time: Int) {
-        gameModel.time = (gameModel.isGameOver) ? gameModel.time: time
+        gameModel.time = (gameModel.isGameOver) ? 0: time
     }
     
     

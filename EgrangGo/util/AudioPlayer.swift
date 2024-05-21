@@ -25,3 +25,7 @@ func playAudio(audioResourceId: String, isLoop: Bool) {
         audioPlayer?.play()
     }
 }
+
+func stopAudio(){
+    audioPlayer?.stop()
+}

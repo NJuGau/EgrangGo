@@ -31,6 +31,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var obstacle: Array<SKSpriteNode> = []
     
+    var timer: Int = 61
+    
     override func didMove(to view: SKView) {
         
         view.isMultipleTouchEnabled = true
@@ -71,8 +73,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerBody.addChild(playerLeftLeg)
         playerBody.addChild(playerRightLeg)
         
-        
-        
         let bodyLeftLegJoint = SKPhysicsJointPin.joint(withBodyA: playerBody.physicsBody!, bodyB: playerLeftLeg.physicsBody!, anchor: CGPoint(x: playerBody.position.x, y: playerBody.position.y - 50))
         physicsWorld.add(bodyLeftLegJoint)
         
@@ -97,18 +97,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         joystickLeft.on(.move) { [unowned self] data in
             playerLeftLeg.zRotation = data.angular + .pi
-//            print("angular: \(data.angular)")
-//            print("player left leg: \(playerLeftLeg.zRotation)")
-            
-            //confused using animation
-//            let diffPos = abs(data.angular + .pi - playerLeftLeg.zRotation)
-//            let diffNeg = abs(2 * .pi - (data.angular + .pi)) + abs(playerLeftLeg.zRotation)
-//            
-//            if(diffPos > diffNeg) {
-//                playerLeftLeg.run(SKAction.rotate(byAngle: diffPos, duration: 0.5))
-//            }else{
-//                playerLeftLeg.run(SKAction.rotate(byAngle: -diffNeg, duration: 1.0))
-//            }
         }
         
         joystickRight.position = CGPoint(x: 1024 * 0.5 - joystickRight.radius - 50, y: 768 * -0.5 + joystickRight.radius + 50)
@@ -118,20 +106,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.addChild(joystickRight)
         joystickRight.on(.move) { [unowned self] data in
             playerRightLeg.zRotation = data.angular + .pi
-//            print("angular: \(data.angular)")
-//            print("player right leg: \(playerRightLeg.zRotation)")
-            
         }
         
-//        addChild(rock1)
-//        addChild(rock2)
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(countdown), SKAction.wait(forDuration: (1))])))
     }
     
     override func update(_ currentTime: TimeInterval) {
-        print(playerBody.position.x)
         cam.position.x = playerBody.position.x + 400
         if Int(cam.position.x) > nextCamPosition {
-            print("Make new ground")
             nextCamPosition = Int(cam.position.x) + generateTerrain()
             let newGround = SKShapeNode(rectOf: CGSize(width: generateTerrain(), height: 200))
             newGround.strokeColor = .ground
@@ -236,6 +218,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerBody.removeAllChildren()
         self.removeAllActions()
         self.removeAllChildren()
+    }
+    
+    func countdown() {
+        timer -= 1
+        if timer <= 0{
+            gameOver()
+        }else if timer < 10 {
+            run(SKAction.playSoundFileNamed(ResourceHandler.sound.groundStep, waitForCompletion: true))
+        }
+        if var timeProtocol = self.timeProtocol {
+            timeProtocol.updateTime(time: timer)
+        }
     }
     
 }
