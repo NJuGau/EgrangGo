@@ -60,6 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let coinFlip = Int.random(in: 0..<100)
             if coinFlip < 10 {
                 addChild(Rock(x: CGFloat(pos)))
+            } else if coinFlip < 20 {
+                addChild(Tree(x: CGFloat(pos)))
             }
         }
         
@@ -135,6 +137,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let coinFlip = Int.random(in: 0..<100)
                 if coinFlip < 10 {
                     addChild(Rock(x: CGFloat(pos)))
+                } else if coinFlip < 20 {
+                    addChild(Tree(x: CGFloat(pos)))
                 }
             }
         }

@@ -13,7 +13,7 @@ class Tree: SKSpriteNode {
         let txt = SKTexture(imageNamed: ResourceHandler.image.tree)
         
         super.init(texture: txt, color: .white, size: txt.size())
-        position.y = CGFloat(-Screen.height.rawValue/2 + 100)
+        position.y = CGFloat(-Screen.height.rawValue/2 + 325)
         position.x = x
         zPosition = 0
         
