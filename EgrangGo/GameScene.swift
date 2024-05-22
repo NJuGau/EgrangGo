@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var obstacle: Array<SKSpriteNode> = []
     
     var timer: Int = 61
+    var legAudioCooldown = 5
     
     override func didMove(to view: SKView) {
         
@@ -180,6 +181,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handleLegCollision(contact: SKPhysicsContact) {
+        guard legAudioCooldown <= 0 else {
+            legAudioCooldown -= 1
+            return
+        }
+        legAudioCooldown = 5
         var envBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask == CollisionCategory.playerLeg.rawValue {
             envBody = contact.bodyB
