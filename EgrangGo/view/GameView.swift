@@ -54,7 +54,6 @@ struct GameView: View {
             }
         }.navigationBarBackButtonHidden(true)
             .onAppear{
-                print("appear")
                 gameModel.gameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
                 gameModel.gameScene.gameOverProtocol = self
                 gameModel.gameScene.distanceProtocol = self
@@ -74,7 +73,11 @@ extension GameView: GameOverProtocol {
 
 extension GameView: DistanceProtocol {
     mutating func updateDistance(distance: Int) {
-        gameModel.distance = (gameModel.isGameOver) ? gameModel.distance : distance
+        if distance <= 0 {
+            gameModel.distance = 0
+        }else{
+            gameModel.distance = (gameModel.isGameOver) ? gameModel.distance : distance
+        }
     }
 }
 
