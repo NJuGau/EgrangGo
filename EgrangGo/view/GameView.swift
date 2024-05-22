@@ -9,14 +9,6 @@ import SwiftUI
 import SpriteKit
 import AVFoundation
 
-
-class GameViewModel: ObservableObject {
-    @Published var isGameOver: Bool = false
-    @Published var distance: Int = 0
-    @Published var time: Int = 0
-    @Published var gameScene: GameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-}
-
 struct GameView: View {
     @ObservedObject var gameModel = GameViewModel()
     
@@ -31,14 +23,14 @@ struct GameView: View {
                     HStack{
                         Spacer(minLength: CGFloat(Screen.width.rawValue) / 2 - 30)
                         ZStack{
-                            Image(uiImage: UIImage(imageLiteralResourceName: "TimeBox"))
+                            Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.timeBox))
                             Text("\(gameModel.time)")
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
                         Spacer()
                         ZStack{
-                            Image(uiImage: UIImage(imageLiteralResourceName: "DistanceBox"))
+                            Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.distanceBox))
                             Text("Distance: \(gameModel.distance) M")
                                 .font(.title)
                                 .fontWeight(.bold)

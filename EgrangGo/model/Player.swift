@@ -9,7 +9,7 @@ import SpriteKit
 
 class PlayerBody: SKSpriteNode {
     init(){
-        let txt = SKTexture(imageNamed: "Player_Body")
+        let txt = SKTexture(imageNamed: ResourceHandler.image.playerBody)
         
         super.init(texture: txt, color: .white, size: txt.size())
         
@@ -26,6 +26,7 @@ class PlayerBody: SKSpriteNode {
         physicsBody?.restitution = 0.0
         //positioning
         position.y = 105
+        zPosition = 3
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,10 +35,11 @@ class PlayerBody: SKSpriteNode {
 }
 
 class PlayerLeg: SKSpriteNode {
-    init(){
-        let txt = SKTexture(imageNamed: "Player_Leg")
-        
+    init(name: String){
+        let txt = SKTexture(imageNamed: (name == "playerRightLeg") ? ResourceHandler.image.playerRightLeg : ResourceHandler.image.playerLeftLeg)
+                
         super.init(texture: txt, color: .white, size: txt.size())
+        self.name = name
         physicsBody = SKPhysicsBody(texture: texture!, size: texture!.size())
         physicsBody?.categoryBitMask = CollisionCategory.playerLeg.rawValue
         physicsBody?.collisionBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
@@ -46,7 +48,7 @@ class PlayerLeg: SKSpriteNode {
         physicsBody?.friction = 1
         position.y = -195
         position.x = 50
-        
+        zPosition = -1
     }
     
     

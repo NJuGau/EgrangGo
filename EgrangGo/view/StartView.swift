@@ -13,12 +13,12 @@ struct StartView: View {
             ZStack{
                 BackgroundView()
                 VStack{
-                    Image(uiImage: UIImage(imageLiteralResourceName: "Title"))
+                    Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.gameTitle))
                     Spacer()
                     NavigationLink{
                         GameView()
                     }label: {
-                        Image(uiImage: UIImage(imageLiteralResourceName: "Start"))
+                        Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.startButton))
                     }
                 }
                 .padding(128)

@@ -45,6 +45,8 @@
 		0DBD8F772BFCEC39006FE4B6 /* Fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F742BFCEC39006FE4B6 /* Fall.wav */; };
 		0DBD8F782BFCEC39006FE4B6 /* Countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F752BFCEC39006FE4B6 /* Countdown.wav */; };
 		0DBD8F792BFCEC39006FE4B6 /* TimeUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DBD8F762BFCEC39006FE4B6 /* TimeUp.wav */; };
+		0DBD8F7C2BFDD862006FE4B6 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F7B2BFDD862006FE4B6 /* GameViewModel.swift */; };
+		0DBD8F7F2BFDD8DF006FE4B6 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD8F7E2BFDD8DF006FE4B6 /* Tree.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		0DBD8F742BFCEC39006FE4B6 /* Fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fall.wav; sourceTree = "<group>"; };
 		0DBD8F752BFCEC39006FE4B6 /* Countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Countdown.wav; sourceTree = "<group>"; };
 		0DBD8F762BFCEC39006FE4B6 /* TimeUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TimeUp.wav; sourceTree = "<group>"; };
+		0DBD8F7B2BFDD862006FE4B6 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		0DBD8F7E2BFDD8DF006FE4B6 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		0DAC78A22BF5A84B0001468A /* EgrangGo */ = {
 			isa = PBXGroup;
 			children = (
+				0DBD8F7A2BFDD852006FE4B6 /* view_model */,
 				0D20F5CB2BFBE3DA0043B80A /* view */,
 				0DAC79182BF88EA50001468A /* resource */,
 				0DAC79152BF867DD0001468A /* util */,
@@ -208,6 +213,7 @@
 				0DAC79342BFAECAD0001468A /* Ground.swift */,
 				0DAC79382BFAFABA0001468A /* Stone.swift */,
 				0D20F5D02BFBE9B40043B80A /* Cat.swift */,
+				0DBD8F7E2BFDD8DF006FE4B6 /* Tree.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -250,6 +256,14 @@
 				0DAC791E2BF88EC10001468A /* Wind.wav */,
 			);
 			path = audio;
+			sourceTree = "<group>";
+		};
+		0DBD8F7A2BFDD852006FE4B6 /* view_model */ = {
+			isa = PBXGroup;
+			children = (
+				0DBD8F7B2BFDD862006FE4B6 /* GameViewModel.swift */,
+			);
+			path = view_model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBD8F7C2BFDD862006FE4B6 /* GameViewModel.swift in Sources */,
 				0DAC79172BF867EC0001468A /* Collision.swift in Sources */,
 				0DAC79132BF867960001468A /* Player.swift in Sources */,
 				0DAC78AA2BF5A84B0001468A /* GameScene.swift in Sources */,
@@ -407,6 +422,7 @@
 				0DAC79392BFAFABA0001468A /* Stone.swift in Sources */,
 				0D20F5D12BFBE9B40043B80A /* Cat.swift in Sources */,
 				0DAC79332BFA56BF0001468A /* TLAnalogJoystick.swift in Sources */,
+				0DBD8F7F2BFDD8DF006FE4B6 /* Tree.swift in Sources */,
 				0DBD8F6D2BFC826D006FE4B6 /* BackgroundView.swift in Sources */,
 				0DBD8F732BFCDA87006FE4B6 /* AudioPlayer.swift in Sources */,
 				0DAC792F2BF88F110001468A /* ReourceHandler.swift in Sources */,

@@ -18,10 +18,10 @@ struct ResultView: View {
                 .fill()
                 .opacity(0.5)
                 .ignoresSafeArea()
-            Image(uiImage: UIImage(imageLiteralResourceName: "ResultBox"))
+            Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.resultBox))
             VStack{
                 Spacer()
-                Image(uiImage: UIImage(imageLiteralResourceName: "GameOver"))
+                Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.gameOverText))
                     .padding(24)
                 Text("Distance: \(result) M")
                     .font(.largeTitle)
@@ -33,7 +33,7 @@ struct ResultView: View {
                     stopAudio()
                     playAudio(audioResourceId: ResourceHandler.sound.backgroundSound, isLoop: true)
                 }label : {
-                    Image(uiImage: UIImage(imageLiteralResourceName: "Home"))
+                    Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.homeButton))
                 }
                 Spacer()
             }

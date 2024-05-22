@@ -17,8 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var timeProtocol: TimeProtocol? = nil
     
     let playerBody = PlayerBody()
-    let playerLeftLeg = PlayerLeg()
-    let playerRightLeg = PlayerLeg()
+    let playerLeftLeg = PlayerLeg(name: "playerLeftLeg")
+    let playerRightLeg = PlayerLeg(name: "playerRightLeg")
     
     let ground = SKShapeNode(rectOf: CGSize(width: generateTerrain(), height: 200))
     var lastGroundPosition = 0
@@ -53,6 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.physicsBody?.friction = 1
         ground.position.x = CGFloat(lastGroundPosition)
         ground.position.y = -frame.height / 2
+        ground.zPosition = 5
         addChild(ground)
         
         for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
@@ -67,9 +68,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             leaf.zPosition = -1
         }
         
-        playerLeftLeg.name = "playerLeftLeg"
-        playerRightLeg.name = "playerRightLeg"
-        
         addChild(playerBody)
         playerBody.addChild(playerLeftLeg)
         playerBody.addChild(playerRightLeg)
@@ -78,7 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.add(bodyLeftLegJoint)
         
         
-        let bodyRightLegJoint = SKPhysicsJointPin.joint(withBodyA: playerBody.physicsBody!, bodyB: playerRightLeg.physicsBody!, anchor: playerBody.position)
+        let bodyRightLegJoint = SKPhysicsJointPin.joint(withBodyA: playerBody.physicsBody!, bodyB: playerRightLeg.physicsBody!, anchor: CGPoint(x: playerBody.position.x, y: playerBody.position.y - 50))
         physicsWorld.add(bodyRightLegJoint)
         
         //starting rotation
@@ -90,21 +88,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.camera = cam
         addChild(cam)
         
-        joystickLeft.position = CGPoint(x: 1024 * -0.5 + joystickLeft.radius + 50, y: 768 * -0.5 + joystickLeft.radius + 50)
-        joystickLeft.zPosition = 5
-        joystickLeft.baseImage = UIImage(named: "joystick_back")
-        joystickLeft.handleImage = UIImage(named: "joystick_front")
+        joystickLeft.position = CGPoint(x: CGFloat(Screen.width.rawValue) * -0.5 + joystickLeft.radius + 50, y: 768 * -0.5 + joystickLeft.radius + 50)
+        joystickLeft.zPosition = 10
+        joystickLeft.baseImage = UIImage(named: ResourceHandler.image.joystickBack)
+        joystickLeft.handleImage = UIImage(named: ResourceHandler.image.joystickFront)
         cam.addChild(joystickLeft)
         
         joystickLeft.on(.move) { [unowned self] data in
             playerLeftLeg.zRotation = data.angular + .pi
         }
         
-        joystickRight.position = CGPoint(x: 1024 * 0.5 - joystickRight.radius - 50, y: 768 * -0.5 + joystickRight.radius + 50)
-        joystickRight.zPosition = 5
-        joystickRight.baseImage = UIImage(named: "joystick_back")
-        joystickRight.handleImage = UIImage(named: "joystick_front")
+        joystickRight.position = CGPoint(x: CGFloat(Screen.width.rawValue) * 0.5 - joystickRight.radius - 50, y: 768 * -0.5 + joystickRight.radius + 50)
+        joystickRight.zPosition = 10
+        joystickRight.baseImage = UIImage(named: ResourceHandler.image.joystickBack)
+        joystickRight.handleImage = UIImage(named: ResourceHandler.image.joystickFront)
         cam.addChild(joystickRight)
+        
         joystickRight.on(.move) { [unowned self] data in
             playerRightLeg.zRotation = data.angular + .pi
         }
@@ -128,6 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newGround.physicsBody?.friction = 1
             newGround.position.x = CGFloat(lastGroundPosition) + CGFloat(generateTerrain())
             newGround.position.y = -frame.height / 2
+            newGround.zPosition = 5
             lastGroundPosition = Int(newGround.position.x)
             addChild(newGround)
             
