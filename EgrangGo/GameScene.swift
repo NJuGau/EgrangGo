@@ -20,7 +20,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerLeftLeg = PlayerLeg(name: "playerLeftLeg")
     let playerRightLeg = PlayerLeg(name: "playerRightLeg")
     
-    let ground = SKShapeNode(rectOf: CGSize(width: generateTerrain(), height: 200))
     var lastGroundPosition = 0
     
     let joystickLeft = TLAnalogJoystick(withDiameter: 200)
@@ -42,28 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
-        ground.strokeColor = .ground
-        ground.fillColor = .ground
-        ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: generateTerrain(), height: 200))
-        ground.physicsBody?.categoryBitMask = CollisionCategory.ground.rawValue
-        ground.physicsBody?.collisionBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
-        ground.physicsBody?.contactTestBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
-        ground.physicsBody?.affectedByGravity = false
-        ground.physicsBody?.isDynamic = false
-        ground.physicsBody?.friction = 1
-        ground.position.x = CGFloat(lastGroundPosition)
-        ground.position.y = -frame.height / 2
-        ground.zPosition = 5
-        addChild(ground)
-        
-        for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
-            let coinFlip = Int.random(in: 0..<100)
-            if coinFlip < 10 {
-                addChild(Rock(x: CGFloat(pos)))
-            } else if coinFlip < 20 {
-                addChild(Tree(x: CGFloat(pos)))
-            }
-        }
+        generateGroundFeatures(lastGroundPosition: &lastGroundPosition, scene: self, isFirst: true)
         
         if let leaf = SKEmitterNode(fileNamed: "LeafBlowParticle"){
             leaf.position = CGPoint(x:1080, y: 0)
@@ -74,14 +52,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerBody.addChild(playerLeftLeg)
         playerBody.addChild(playerRightLeg)
         
-        let bodyLeftLegJoint = SKPhysicsJointPin.joint(withBodyA: playerBody.physicsBody!, bodyB: playerLeftLeg.physicsBody!, anchor: CGPoint(x: playerBody.position.x, y: playerBody.position.y - 50))
+        let bodyLeftLegJoint = createBodyLegJoint(body: playerBody, leg: playerLeftLeg)
         physicsWorld.add(bodyLeftLegJoint)
         
         
-        let bodyRightLegJoint = SKPhysicsJointPin.joint(withBodyA: playerBody.physicsBody!, bodyB: playerRightLeg.physicsBody!, anchor: CGPoint(x: playerBody.position.x, y: playerBody.position.y - 50))
+        let bodyRightLegJoint = createBodyLegJoint(body: playerBody, leg: playerRightLeg)
         physicsWorld.add(bodyRightLegJoint)
         
-        //starting rotation
         playerLeftLeg.zRotation = 5.6
         playerRightLeg.zRotation = 0.3
         
@@ -89,6 +66,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.position.y = 200
         self.camera = cam
         addChild(cam)
+        
+        generateInvisibleBarrier(scene: self)
         
         joystickLeft.position = CGPoint(x: CGFloat(Screen.width.rawValue) * -0.5 + joystickLeft.radius + 50, y: 768 * -0.5 + joystickLeft.radius + 50)
         joystickLeft.zPosition = 10
@@ -117,30 +96,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.position.x = playerBody.position.x + 400
         if Int(cam.position.x) > nextCamPosition {
             nextCamPosition = Int(cam.position.x) + generateTerrain()
-            let newGround = SKShapeNode(rectOf: CGSize(width: generateTerrain(), height: 200))
-            newGround.strokeColor = .ground
-            newGround.fillColor = .ground
-            newGround.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: generateTerrain(), height: 200))
-            newGround.physicsBody?.categoryBitMask = CollisionCategory.ground.rawValue
-            newGround.physicsBody?.collisionBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
-            newGround.physicsBody?.contactTestBitMask = CollisionCategory.playerBody.rawValue | CollisionCategory.playerLeg.rawValue
-            newGround.physicsBody?.affectedByGravity = false
-            newGround.physicsBody?.isDynamic = false
-            newGround.physicsBody?.friction = 1
-            newGround.position.x = CGFloat(lastGroundPosition) + CGFloat(generateTerrain())
-            newGround.position.y = -frame.height / 2
-            newGround.zPosition = 5
-            lastGroundPosition = Int(newGround.position.x)
-            addChild(newGround)
             
-            for pos in stride(from: lastGroundPosition - generateTerrain() / 2, to: lastGroundPosition + generateTerrain() / 2, by: 100){
-                let coinFlip = Int.random(in: 0..<100)
-                if coinFlip < 10 {
-                    addChild(Rock(x: CGFloat(pos)))
-                } else if coinFlip < 20 {
-                    addChild(Tree(x: CGFloat(pos)))
-                }
-            }
+            generateGroundFeatures(lastGroundPosition: &lastGroundPosition, scene: self, isFirst: false)
         }
         
         if var distanceProtocol = self.distanceProtocol {

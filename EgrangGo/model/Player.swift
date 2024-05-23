@@ -16,8 +16,8 @@ class PlayerBody: SKSpriteNode {
         name = "playerBody"
         physicsBody = SKPhysicsBody(texture: texture!, size: texture!.size())
         physicsBody?.categoryBitMask = CollisionCategory.playerBody.rawValue
-        physicsBody?.collisionBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
-        physicsBody?.contactTestBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue
+        physicsBody?.collisionBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue | CollisionCategory.barrier.rawValue
+        physicsBody?.contactTestBitMask = CollisionCategory.ground.rawValue | CollisionCategory.rock.rawValue | CollisionCategory.cat.rawValue | CollisionCategory.barrier.rawValue
         physicsBody?.isDynamic = true
         physicsBody?.affectedByGravity = false
         physicsBody?.allowsRotation = false
@@ -55,4 +55,8 @@ class PlayerLeg: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("")
     }
+}
+
+func createBodyLegJoint(body: PlayerBody, leg: PlayerLeg) -> SKPhysicsJointPin {
+    return SKPhysicsJointPin.joint(withBodyA: body.physicsBody!, bodyB: leg.physicsBody!, anchor: CGPoint(x: body.position.x, y: body.position.y - 50))
 }

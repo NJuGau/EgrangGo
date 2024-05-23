@@ -38,6 +38,7 @@ struct ImageResourceHandler {
     let logo = "Logo"
     let gameTitle = "Title"
     let gameOverText = "GameOver"
+    let helpText = "Tutorial"
     
     let playerBody = "Player_Body"
     let playerLeftLeg = "LeftLeg"
@@ -54,6 +55,8 @@ struct ImageResourceHandler {
     let homeButton = "Home"
     let pauseButton = "Pause"
     let startButton = "Start"
+    let exitButton = "ExitButton"
+    let helpButton = "HelpButton"
     
     let joystickBack = "Joystick_Back"
     let joystickFront = "Joystick_Front"
@@ -61,6 +64,7 @@ struct ImageResourceHandler {
     let timeBox = "TimeBox"
     let distanceBox = "DistanceBox"
     let resultBox = "ResultBox"
+    let helpBox = "HelpBackground"
     
     let SoundwaveHigh = "Soundwave_High"
     let SoundwaveMedium = "Soundwave_Medium"
