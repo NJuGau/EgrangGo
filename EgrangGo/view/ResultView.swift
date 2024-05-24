@@ -11,6 +11,8 @@ struct ResultView: View {
     @Environment(\.dismiss) private var dismiss
     var result: Int
     @Binding var isGameOver: Bool
+    var isNewHighScore: Bool
+    var highScore: Int
     
     var body: some View {
         ZStack{
@@ -22,11 +24,20 @@ struct ResultView: View {
             VStack{
                 Spacer()
                 Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.gameOverText))
-                    .padding(24)
+                    .padding([.bottom], 32)
+                if isNewHighScore {
+                    Text("New Highscore!")
+                        .font(.title)
+                        .fontWeight(.bold)
+                } else {
+                    Text("Highscore: \(highScore) M")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
                 Text("Distance: \(result) M")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                Spacer()
+                    .padding([.bottom], 56)
                 Button {
                     dismiss()
                     isGameOver = false
@@ -43,5 +54,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(result: 10, isGameOver: .constant(false))
+    ResultView(result: 10, isGameOver: .constant(false), isNewHighScore: true, highScore: 10)
 }

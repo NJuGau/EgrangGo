@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 func generateInvisibleBarrier(scene: SKScene) {
-    var invisibleBarrier = SKShapeNode(rectOf: CGSize(width: Screen.width.rawValue / 12, height: Screen.height.rawValue))
+    let invisibleBarrier = SKShapeNode(rectOf: CGSize(width: Screen.width.rawValue / 12, height: Screen.height.rawValue))
     invisibleBarrier.strokeColor = .clear
     invisibleBarrier.position.x = -500
     invisibleBarrier.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Screen.width.rawValue / 12, height: Screen.height.rawValue))

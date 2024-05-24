@@ -10,6 +10,7 @@ import Foundation
 enum ResourceHandler {
     static let sound = SoundResourceHandler()
     static let image = ImageResourceHandler()
+    static let video = VideoResourceHandler()
 }
 
 
@@ -69,4 +70,8 @@ struct ImageResourceHandler {
     let SoundwaveHigh = "Soundwave_High"
     let SoundwaveMedium = "Soundwave_Medium"
     let SoundwaveLow = "Soundwave_Low"
+}
+
+struct VideoResourceHandler {
+    let walkingTutorial = "TutorialWalking"
 }

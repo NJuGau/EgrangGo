@@ -10,7 +10,7 @@ import AVKit
 
 struct HelpView: View {
     @Binding var isShowingHelp: Bool
-    @State var player = AVPlayer(url: Bundle.main.url(forResource: "TutorialWalking", withExtension: "mov")!)
+    @State var player = AVPlayer(url: Bundle.main.url(forResource: ResourceHandler.video.walkingTutorial, withExtension: "mov")!)
     
     var body: some View {
         ZStack {

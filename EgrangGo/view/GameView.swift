@@ -41,7 +41,7 @@ struct GameView: View {
                 }
                 
                 if gameModel.isGameOver {
-                    ResultView(result: gameModel.distance, isGameOver: $gameModel.isGameOver)
+                    ResultView(result: gameModel.distance, isGameOver: $gameModel.isGameOver, isNewHighScore: gameModel.isNewHighScore, highScore: gameModel.highScoreHandler.getHighScore())
                 }
             }
         }.navigationBarBackButtonHidden(true)
@@ -60,6 +60,17 @@ extension GameView: GameOverProtocol {
     mutating func setGameOver(value: Bool) {
         playAudio(audioResourceId: (gameModel.time <= 0) ? ResourceHandler.sound.timeUp : ResourceHandler.sound.fall, isLoop: false)
         gameModel.isGameOver = value
+        
+        //highscore setter
+        let currentHighScore = gameModel.highScoreHandler.getHighScore()
+        
+        if currentHighScore < gameModel.distance {
+            gameModel.highScoreHandler.setHighScore(newScore: gameModel.distance)
+            gameModel.isNewHighScore = true
+            playAudio(audioResourceId: ResourceHandler.sound.gameComplete, isLoop: false)
+        } else {
+            gameModel.isNewHighScore = false
+        }
     }
 }
 

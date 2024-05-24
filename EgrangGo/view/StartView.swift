@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-class StartViewModel: ObservableObject {
-    @Published var isShowingHelp: Bool = false
-}
-
 struct StartView: View {
     @ObservedObject var viewModel = StartViewModel()
     var body: some View {
