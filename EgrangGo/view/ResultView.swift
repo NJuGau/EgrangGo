@@ -11,7 +11,6 @@ struct ResultView: View {
     @Environment(\.dismiss) private var dismiss
     var result: Int
     @Binding var isGameOver: Bool
-    var isNewHighScore: Bool
     var highScore: Int
     
     var body: some View {
@@ -25,10 +24,14 @@ struct ResultView: View {
                 Spacer()
                 Image(uiImage: UIImage(imageLiteralResourceName: ResourceHandler.image.gameOverText))
                     .padding([.bottom], 32)
-                if isNewHighScore {
+                if highScore == result {
                     Text("New Highscore!")
                         .font(.title)
                         .fontWeight(.bold)
+                        .onAppear(){
+                            stopAudio()
+                            playSFX(audioResourceId: ResourceHandler.sound.gameComplete, isLoop: false)
+                        }
                 } else {
                     Text("Highscore: \(highScore) M")
                         .font(.title)
@@ -54,5 +57,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(result: 10, isGameOver: .constant(false), isNewHighScore: true, highScore: 10)
+    ResultView(result: 10, isGameOver: .constant(false), highScore: 10)
 }

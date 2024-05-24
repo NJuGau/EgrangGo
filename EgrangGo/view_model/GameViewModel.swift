@@ -14,5 +14,4 @@ class GameViewModel: ObservableObject {
     @Published var time: Int = 0
     @Published var gameScene: GameScene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     @Published var highScoreHandler = HighScoreHandler()
-    @Published var isNewHighScore = false
 }

@@ -44,6 +44,8 @@ struct StartView: View {
         .onAppear(){
             playAudio(audioResourceId: ResourceHandler.sound.backgroundSound, isLoop: true)
         }
+        .ignoresSafeArea(.all)
+        .statusBarHidden(true)
     }
 }
 

@@ -41,7 +41,7 @@ struct GameView: View {
                 }
                 
                 if gameModel.isGameOver {
-                    ResultView(result: gameModel.distance, isGameOver: $gameModel.isGameOver, isNewHighScore: gameModel.isNewHighScore, highScore: gameModel.highScoreHandler.getHighScore())
+                    ResultView(result: gameModel.distance, isGameOver: $gameModel.isGameOver, highScore: gameModel.highScoreHandler.getHighScore())
                 }
             }
         }.navigationBarBackButtonHidden(true)
@@ -51,42 +51,48 @@ struct GameView: View {
                 gameModel.gameScene.distanceProtocol = self
                 gameModel.gameScene.timeProtocol = self
             }
+            .ignoresSafeArea(.all)
+            .statusBarHidden(true)
     }
     
     
 }
 
 extension GameView: GameOverProtocol {
-    mutating func setGameOver(value: Bool) {
-        playAudio(audioResourceId: (gameModel.time <= 0) ? ResourceHandler.sound.timeUp : ResourceHandler.sound.fall, isLoop: false)
-        gameModel.isGameOver = value
-        
-        //highscore setter
-        let currentHighScore = gameModel.highScoreHandler.getHighScore()
-        
-        if currentHighScore < gameModel.distance {
-            gameModel.highScoreHandler.setHighScore(newScore: gameModel.distance)
-            gameModel.isNewHighScore = true
-            playAudio(audioResourceId: ResourceHandler.sound.gameComplete, isLoop: false)
-        } else {
-            gameModel.isNewHighScore = false
+    func setGameOver(value: Bool) {
+        DispatchQueue.main.async {
+            playAudio(audioResourceId: (gameModel.time <= 0) ? ResourceHandler.sound.timeUp : ResourceHandler.sound.fall, isLoop: false)
+            
+            //highscore setter
+            let currentHighScore = gameModel.highScoreHandler.getHighScore()
+            
+            if currentHighScore < gameModel.distance {
+                gameModel.highScoreHandler.setHighScore(newScore: gameModel.distance)
+            }
+            
+            //result enabler
+            gameModel.isGameOver = value
         }
     }
 }
 
 extension GameView: DistanceProtocol {
-    mutating func updateDistance(distance: Int) {
-        if distance <= 0 {
-            gameModel.distance = 0
-        }else{
-            gameModel.distance = (gameModel.isGameOver) ? gameModel.distance : distance
+    func updateDistance(distance: Int) {
+        DispatchQueue.main.async {
+            if distance <= 0 {
+                gameModel.distance = 0
+            }else{
+                gameModel.distance = (gameModel.isGameOver) ? gameModel.distance : distance
+            }
         }
     }
 }
 
 extension GameView: TimeProtocol {
-    mutating func updateTime(time: Int) {
-        gameModel.time = (gameModel.isGameOver) ? gameModel.time: time
+     func updateTime(time: Int) {
+         DispatchQueue.main.async {
+             gameModel.time = (gameModel.isGameOver) ? gameModel.time: time
+         }
     }
     
     
