@@ -193,19 +193,15 @@
 		0DAC78A22BF5A84B0001468A /* EgrangGo */ = {
 			isa = PBXGroup;
 			children = (
-				0DBD8F7A2BFDD852006FE4B6 /* view_model */,
-				0D20F5CB2BFBE3DA0043B80A /* view */,
 				0DAC79182BF88EA50001468A /* resource */,
 				0DAC79152BF867DD0001468A /* util */,
-				0DAC79142BF8679C0001468A /* model */,
 				0DAC78A32BF5A84B0001468A /* AppDelegate.swift */,
-				0D20F5CE2BFBE5960043B80A /* GameScene.sks */,
-				0DAC78A92BF5A84B0001468A /* GameScene.swift */,
+				0DEFC6512C041D71008059BC /* swiftui */,
+				0DEFC6502C041D24008059BC /* spritekit */,
 				0DAC78AB2BF5A84B0001468A /* GameViewController.swift */,
 				0DAC78AD2BF5A84B0001468A /* Main.storyboard */,
 				0DAC78B02BF5A84C0001468A /* Assets.xcassets */,
 				0DAC78B22BF5A84C0001468A /* LaunchScreen.storyboard */,
-				0DAC79102BF7BA170001468A /* LeafBlowParticle.sks */,
 			);
 			path = EgrangGo;
 			sourceTree = "<group>";
@@ -227,10 +223,10 @@
 			path = EgrangGoUITests;
 			sourceTree = "<group>";
 		};
-		0DAC79142BF8679C0001468A /* model */ = {
+		0DAC79142BF8679C0001468A /* entity */ = {
 			isa = PBXGroup;
 			children = (
-				0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */,
+				0DAC79102BF7BA170001468A /* LeafBlowParticle.sks */,
 				0DAC79122BF867960001468A /* Player.swift */,
 				0DAC79342BFAECAD0001468A /* Ground.swift */,
 				0DAC79382BFAFABA0001468A /* Stone.swift */,
@@ -238,7 +234,7 @@
 				0DBD8F7E2BFDD8DF006FE4B6 /* Tree.swift */,
 				0D5E8C1E2BFF97D600E56955 /* InvisibleBarrier.swift */,
 			);
-			path = model;
+			path = entity;
 			sourceTree = "<group>";
 		};
 		0DAC79152BF867DD0001468A /* util */ = {
@@ -283,13 +279,49 @@
 			path = audio;
 			sourceTree = "<group>";
 		};
-		0DBD8F7A2BFDD852006FE4B6 /* view_model */ = {
+		0DBD8F7A2BFDD852006FE4B6 /* viewmodel */ = {
 			isa = PBXGroup;
 			children = (
 				0DBD8F7B2BFDD862006FE4B6 /* GameViewModel.swift */,
 				0D16F4932C002A2A00F62A5E /* StartViewModel.swift */,
 			);
-			path = view_model;
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		0DEFC64E2C041C96008059BC /* System */ = {
+			isa = PBXGroup;
+			children = (
+				0D20F5CE2BFBE5960043B80A /* GameScene.sks */,
+				0DAC78A92BF5A84B0001468A /* GameScene.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		0DEFC64F2C041D0E008059BC /* component */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC79322BFA56BF0001468A /* TLAnalogJoystick.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		0DEFC6502C041D24008059BC /* spritekit */ = {
+			isa = PBXGroup;
+			children = (
+				0DEFC64F2C041D0E008059BC /* component */,
+				0DEFC64E2C041C96008059BC /* System */,
+				0DAC79142BF8679C0001468A /* entity */,
+			);
+			path = spritekit;
+			sourceTree = "<group>";
+		};
+		0DEFC6512C041D71008059BC /* swiftui */ = {
+			isa = PBXGroup;
+			children = (
+				0DBD8F7A2BFDD852006FE4B6 /* viewmodel */,
+				0D20F5CB2BFBE3DA0043B80A /* view */,
+			);
+			path = swiftui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
